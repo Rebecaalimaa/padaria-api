@@ -12,8 +12,65 @@ const Fornecedor = require('./controllers/fornecedor');
 const MiddlewareAuth = require('./middlewares/auth');
 
 routes.get('/', (req, res) => {
-  return res.json({ titulo: 'Padaria Paladar Nobre' });
-});
+  const api = {
+    titulo: 'Padaria Paladar Nobre',
+    versao: '1.0.0',
+    rotas: [
+      // Login
+      { metodo: 'POST', caminho: '/api/login' },
+      { metodo: 'GET', caminho: '/api/login' },
+
+      // Clientes
+      { metodo: 'GET', caminho: '/api/clientes' },
+      { metodo: 'GET', caminho: '/api/clientes/:id' },
+      { metodo: 'POST', caminho: '/api/clientes' },
+      { metodo: 'PATCH', caminho: '/api/clientes/:id' },
+      { metodo: 'DELETE', caminho: '/api/clientes/:id' },
+
+      // Produtos
+      { metodo: 'GET', caminho: '/api/produtos' },
+      { metodo: 'POST', caminho: '/api/produtos' },
+      { metodo: 'PATCH', caminho: '/api/produtos/:id' },
+      { metodo: 'DELETE', caminho: '/api/produtos/:id' },
+
+      // Pedidos
+      { metodo: 'GET', caminho: '/api/pedidos' },
+      { metodo: 'GET', caminho: '/api/pedidos/:id' },
+      { metodo: 'POST', caminho: '/api/pedidos' },
+      { metodo: 'PATCH', caminho: '/api/pedidos/:id' },
+      { metodo: 'DELETE', caminho: '/api/pedidos/:id' },
+
+      // Itens de Pedido
+      { metodo: 'GET', caminho: '/api/item' },
+      { metodo: 'GET', caminho: '/api/item/:id' },
+      { metodo: 'POST', caminho: '/api/item' },
+      { metodo: 'PATCH', caminho: '/api/item/:id' },
+      { metodo: 'DELETE', caminho: '/api/item/:id' },
+
+      // Funcionários
+      { metodo: 'GET', caminho: '/api/funcionarios' },
+      { metodo: 'GET', caminho: '/api/funcionarios/:id' },
+      { metodo: 'POST', caminho: '/api/funcionarios' },
+      { metodo: 'PATCH', caminho: '/api/funcionarios/:id' },
+      { metodo: 'DELETE', caminho: '/api/funcionarios/:id' },
+
+      // Movimento de Estoque
+      { metodo: 'GET', caminho: '/api/estoque' },
+      { metodo: 'GET', caminho: '/api/estoque/:id' },
+      { metodo: 'POST', caminho: '/api/estoque' },
+      { metodo: 'PATCH', caminho: '/api/estoque/:id' },
+      { metodo: 'DELETE', caminho: '/api/estoque/:id' },
+
+      // Fornecedores
+      { metodo: 'GET', caminho: '/api/fornecedores' },
+      { metodo: 'GET', caminho: '/api/fornecedores/:id' },
+      { metodo: 'POST', caminho: '/api/fornecedores' },
+      { metodo: 'PATCH', caminho: '/api/fornecedores/:id' },
+      { metodo: 'DELETE', caminho: '/api/fornecedores/:id' }
+    ]
+  };
+  res.json(api);
+  });
 
 routes.post('/api/login', Login.login);
 routes.get('/api/login', Login.validaToken);
