@@ -1,4 +1,4 @@
-# API de Estacionamento
+# API da Padaria
 ![UML DER](./assets/DER%20padaria.png)
 
 ## Requisitos não funcionais
@@ -21,7 +21,7 @@ npx prisma init --datasource-provider mysql
 ```js
 DATABASE_URL="mysql://root@localhost:3306/estacionamentoapi?schema=public&timezone=UTC"
 ```
-- 5 Edite o Shema do Prisma no arquivo `prisma/schema.prisma` para definir as tabelas `Automovel` e `Estadia`.
+- 5 Edite o Shema do Prisma no arquivo `prisma/schema.prisma` para definir as tabelas.
 - 6 Crie e edite o arquivo `server.js` somente com o básico por enquanto, e `router.js` para definir as rotas da API.
 - 7 Crie a pasta `src` e dentro dela crie o arquivo `router.js` para definir as rotas da API.
 - 8 Execute o comando `npx prisma migrate dev --name init` para criar as tabelas no banco de dados MySQL.<br>Se precisar resetar o prisma o comando é `npx prisma migrate reset`.
